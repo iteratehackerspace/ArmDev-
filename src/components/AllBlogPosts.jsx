@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Components.css';
+import '../css/Components.css';
 
-class Tweets extends Component {
+class AllBlogPosts extends Component {
   render() {
-    const renderTweets = this.props.allTweets.map(tweet => {
+    const renderPosts = this.props.allPosts.map( (tweet, id) => {
       return (
-        <div>
+        <div key={id}>
           <p id='author'>{tweet.author}</p>
           <p id='tweetBody'>{tweet.body}</p>
         </div>
@@ -13,10 +13,10 @@ class Tweets extends Component {
     })
     return(
       <div>
-        {renderTweets}
+        {renderPosts}
       </div>
     )
   }
 }
 
-export default Tweets;
+export default AllBlogPosts;
