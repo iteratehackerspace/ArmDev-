@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './components/Header.jsx';
+import Header from './components/frontpage/FrontPageHeader.jsx';
 import NewBlogPost from './components/NewBlogPost.jsx';
 import AllBlogPosts from './components/AllBlogPosts.jsx';
-import FrontPage from './components/FrontPage.jsx'
+import FrontPage from './components/frontpage/FrontPage.jsx'
 
 class App extends Component {
   constructor() {

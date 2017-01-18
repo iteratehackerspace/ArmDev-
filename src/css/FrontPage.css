@@ -1,11 +1,23 @@
 .wholeScreen {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
   align-items: center;
+
+ 
+
   padding: 3%;
+}
+
+.arm {
   font-weight: bold;
   font-size: 50px;
 }
-.devStyle {
-  background-color: black;
+
+.dev {
+  background-color: #CCFFFF;
   color: white;
+  font-weight: bold;
+  font-size: 50px;
 }
