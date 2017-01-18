@@ -1,0 +1,11 @@
+.wholeScreen {
+  display: flex;
+  align-items: center;
+  padding: 3%;
+  font-weight: bold;
+  font-size: 50px;
+}
+.devStyle {
+  background-color: black;
+  color: white;
+}

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import '../css/Components.css';
+import '../css/AllBlogPosts.css'
 
 class AllBlogPosts extends Component {
   render() {
-    const renderPosts = this.props.allPosts.map( (tweet, id) => {
+    const renderPosts = this.props.allPosts.map( (blogPost, id) => {
       return (
         <div key={id}>
-          <p id='author'>{tweet.author}</p>
-          <p id='tweetBody'>{tweet.body}</p>
+          <p className='author'>{blogPost.author}</p>
+          <p className='blogBody'>{blogPost.body}</p>
         </div>
       )
     })
