@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+.boldFont {
+  font-weight: bold;
+}
+.authorsContainer {
+  flex-direction: row;
+}
+img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.authorsInfo {
+  flex-direction: column;
+}
+.likeButton {
+  background-color: #f1f8fb;
+  width: 10%;
+  border-radius: 15%;
+}
+.likes {
+  font-size: 15px;
+}
