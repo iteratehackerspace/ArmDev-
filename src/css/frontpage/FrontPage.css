@@ -12,12 +12,12 @@
 .bg-image {
   height: 100%;
   width: 100%;
-  background-image: url('../../assets/background.png');
+  background-image: url('../../assets/background.jpg');
   position: absolute;
   background-size: cover;
   top: 0;
   left: 0;
-  opacity: 0.75;
+  opacity: 0.85;
   z-index: -1;
 }
 
