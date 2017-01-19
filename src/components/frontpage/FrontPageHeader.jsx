@@ -5,10 +5,10 @@ class FrontPageHeader extends Component {
   render () {
     return (
         <div className="header">
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Forum</a></li>
-          <li><a href="#">Events</a></li>
-          <li><a href="https://github.com/iteratehackerspace">About Us</a></li>
+          <li className='left'><a href="#">Blog</a></li>
+          <li className='left'><a href="#">Forum</a></li>
+          <li className='right'><a href="#">Events</a></li>
+          <li><a href="http://iteratehackerspace.com/" target='_blank'>About Us</a></li>
         </div>
     )
   }

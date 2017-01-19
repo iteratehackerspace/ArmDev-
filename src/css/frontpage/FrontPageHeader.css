@@ -2,19 +2,33 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   list-style: none;
   position: relative;
   margin: 0;
   background-color: black;
   height: auto;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.right {
+  margin-right: auto;
 }
 
 .header a {
   text-decoration: none;
   display: block;
   padding: 1em;
-  color: white;
+  color: #d3d3d3;
+  transition: background-color .3s ease-in-out, color .3s linear;
+}
+
+.header a:hover{
+  background-color: #d3d3d3;
+  color: black;
 }

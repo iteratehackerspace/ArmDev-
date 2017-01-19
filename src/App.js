@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './components/frontpage/FrontPageHeader.jsx';
 import NewBlogPost from './components/NewBlogPost.jsx';
 import AllBlogPosts from './components/AllBlogPosts.jsx';
 import FrontPage from './components/frontpage/FrontPage.jsx'

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignInUp from '../SignInUp.jsx';
 import FrontPageHeader from './FrontPageHeader.jsx';
+import FrontPageFooter from './FrontPageFooter.jsx';
 import '../../css/frontpage/FrontPage.css'
 
 
@@ -10,8 +11,6 @@ class FrontPage extends Component {
       <div className='wholeScreen'>
         <div className='bg-image'></div>
         <FrontPageHeader />
-      {/*<span className='arm'>Arm</span><span className='dev'>Dev</span>*/}
-        <SignInUp />
         <SignInUp />
       </div>
     )
