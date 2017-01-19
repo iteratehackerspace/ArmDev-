@@ -4,10 +4,16 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  flex-wrap: nowrap;
 
- 
-
-  padding: 3%;
+  height: 100%;
+  width: 100%;
+  background-image: url('../../assets/background.png');
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
 }
 
 .arm {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SignInUp from '../SignInUp.jsx';
 import FrontPageHeader from './FrontPageHeader.jsx';
-import '../../css/FrontPage.css'
+import '../../css/frontpage/FrontPage.css'
 
 
 class FrontPage extends Component {

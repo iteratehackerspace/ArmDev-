@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/FrontPageHeader.css'
+import '../../css/frontpage/FrontPageHeader.css'
 
 class FrontPageHeader extends Component {
   render () {

@@ -5,7 +5,7 @@ class SignInUp extends Component {
   render() {
     return(
       <div>
-      
+
       </div>
     )
   }
