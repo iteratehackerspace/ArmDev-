@@ -4,30 +4,13 @@ import AllBlogPosts from './components/AllBlogPosts.jsx';
 import FrontPage from './components/frontpage/FrontPage.jsx'
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      allBlogPosts: [],
-    }
-  }
-  _handleNewBlogPost(_author, _body) {
-    const blogPost = {id: this.state.allBlogPosts.length, author: _author, body: _body};
-    this.setState({allBlogPosts: this.state.allBlogPosts.concat([blogPost])});
-  }
   render() {
     return (
       <div>
-        <FrontPage />
+        <AllBlogPosts />
       </div>
     );
   }
 }
 
 export default App;
-
-
-
-
-// <Header />
-// <NewBlogPost handleNewBlogPost={this._handleNewBlogPost.bind(this)} />
-// <AllBlogPosts allPosts={this.state.allBlogPosts} />
