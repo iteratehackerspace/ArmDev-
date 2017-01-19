@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  list-style: none;
+  position: relative;
+  margin: 0;
+  background-color: black;
+  height: auto;
+  width: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}

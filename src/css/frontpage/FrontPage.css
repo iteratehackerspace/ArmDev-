@@ -1,10 +1,12 @@
 .wholeScreen {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+  align-items: flex-start;;
   flex-wrap: nowrap;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
 }
 
 .bg-image {
@@ -15,7 +17,8 @@
   background-size: cover;
   top: 0;
   left: 0;
-  opacity: 0.9;
+  opacity: 0.75;
+  z-index: -1;
 }
 
 .arm {

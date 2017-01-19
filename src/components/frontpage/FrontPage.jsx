@@ -10,7 +10,7 @@ class FrontPage extends Component {
       <div className='wholeScreen'>
         <div className='bg-image'></div>
         <FrontPageHeader />
-        <span className='arm'>Arm</span><span className='dev'>Dev</span>
+      {/*<span className='arm'>Arm</span><span className='dev'>Dev</span>*/}
         <SignInUp />
         <SignInUp />
       </div>
