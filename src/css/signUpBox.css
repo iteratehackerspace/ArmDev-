@@ -1,0 +1,46 @@
+.signUpBox{
+  width: 450px;
+  font-size: 16px;
+  background: #495C70;
+  padding: 30px 30px 15px 30px;
+  border: 5px solid #53687E;
+}
+.signUpBox label
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: #fff;
+    display:block;
+    margin-bottom: 10px;
+}
+.signUpBox label > span{
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
+.signUpBox input[type=text],
+.signUpBox input[type=password]
+{
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+.signUpBox input[type=text]:focus,
+.signUpBox input[type=password]:focus
+{
+    border-bottom: 1px dashed #D9FFA9;
+}
+.signUpBox button{
+    background: #576E86;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px;
+    color: #A8BACE;
+}
+.signUpBox button:hover{
+background: #394D61;
+}
