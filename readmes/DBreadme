@@ -1,0 +1,4 @@
+$sudo service mongodb start
+$mongod --dbpath {Project Root}/DBdata
+$mongo //opens up mongo shell
+  $use ArmDev
