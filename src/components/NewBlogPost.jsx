@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import '../css/NewBlogPost.css'
 
 class NewBlogPost extends Component {
-  blogPost(e) {
-    e.preventDefault();
-    const author = this._author.value;
-    const body = this._body.value;
-    this.props.handleNewBlogPost(author, body);
+  _handleNewBlogPost(e) {
+    e.defaultPrevented;
+    const tagsArray = this._tags.value.split(' ');
+    this.props.handleNewBlogPost(this._title.value, tagsArray, this._text.value);
   }
   render() {
     return (
-      <form onSubmit={this.blogPost.bind(this)}>
-        <input placeholder='Name: ' ref={(input) => this._author = input} />
-        <input placeholder='Your post: ' ref={(input) => this._body = input}/>
+      <form onSubmit={this._handleNewBlogPost.bind(this)}>
+        <input placeholder='Blog name:' ref={input => this._title = input}/>
+        <input placeholder='Blog tags:' ref={input => this._tags = input}/>
+        <textarea rows='10' cols='50' placeholder='Blog text:' ref={textarea => this._text = textarea}/>
         <input type='submit' value='Submit Blog'/>
       </form>
     )

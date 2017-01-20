@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BlogPost from './BlogPost.jsx'
+import NewBlogPost from './NewBlogPost.jsx';
 import '../css/AllBlogPosts.css'
 
 class AllBlogPosts extends Component {
@@ -47,6 +48,15 @@ class AllBlogPosts extends Component {
       ],
     }
   }
+  _handleNewBlogPost(_title, _tags, _text) {
+    const newBlogPost = {
+      id: this.state.allBlogPosts.length,
+      tags: _tags,
+      title: _title,
+      text: _text,
+    };
+    this.setState({allBlogPosts: this.state.allBlogPosts.concat([newBlogPost])});
+  }
   _handleBlogPostLike(idx) {
     let newBlogPosts = this.state.allBlogPosts;
     newBlogPosts[idx].likes++;
@@ -63,6 +73,7 @@ class AllBlogPosts extends Component {
     })
     return(
       <div>
+        <NewBlogPost handleNewBlogPost={this._handleNewBlogPost.bind(this)}/>
         {renderPosts}
       </div>
     )

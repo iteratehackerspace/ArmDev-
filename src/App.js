@@ -9,8 +9,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <LogInBox />
-        <SignUpBox />
+        <AllBlogPosts />
       </div>
     );
   }

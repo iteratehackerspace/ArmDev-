@@ -15,7 +15,7 @@ class BlogPost extends Component {
         <span className='boldFont'>{post.title}</span>
         <p>{renderTags}</p>
         <div className='authorsContainer'>
-          <img src={post.author.image} />
+          <img src={post.author.image} role='presentation'/>
           <span className='boldFont'>{post.author.fullName}, </span>
           <span>{post.author.ShortDescription}: </span>
           <span>Written on {post.time}</span>
