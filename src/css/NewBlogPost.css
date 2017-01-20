@@ -1,7 +1,20 @@
 form {
   display: flex;
   flex-direction: column;
+  font-size: 16px;
+  background: #495C70;
+  padding: 15px 15px 15px 15px;
+  border: 5px solid #53687E;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 textarea {
   resize: none;
+}
+.textBox {
+  background-color: #8C89C5;
+  border-bottom: 1px dashed #83A4C5;
+}
+.submitButton:hover{
+  background: #394D61;
+  color: #8C89C5;
 }

@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   font-size: 20px;
+  background: #495C70;
+  padding: 30px 30px 15px 30px;
+  border: 5px solid #53687E;
 }
 .boldFont {
   font-weight: bold;
@@ -24,4 +27,8 @@ img {
 }
 .likes {
   font-size: 15px;
+}
+.likeButton:hover {
+  background: #394D61;
+  color: #8C89C5;
 }
