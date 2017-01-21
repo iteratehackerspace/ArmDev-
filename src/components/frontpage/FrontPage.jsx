@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import SignInUp from '../SignInUp.jsx';
 import FrontPageHeader from './FrontPageHeader.jsx';
 import FrontPageFooter from './FrontPageFooter.jsx';
 import '../../css/frontpage/FrontPage.css'
 import LogInBox from '../LogInBox';
 import SignUpBox from '../SignUpBox';
-import '../../css/LogInBox.css';
-import '../../css/SignUpBox.css';
+import '../../css/CredentialBox.css';
 
 class FrontPage extends Component {
   render() {
