@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import '../css/logInBox.css'
+import '../css/SignUpBox.css'
 
 
-class LogInBox extends Component {
+class SignUpBox extends Component {
   render() {
     return(
-      <div className="loginBox">
+      <div className="signUpBox">
+        <label>
+          <span>Username: </span><input type="text" id="uname"/>
+        </label>
         <label>
           <span>Email: </span><input type="text" id="email"/>
         </label>
         <label>
           <span>Password: </span><input type="password" name="pass"/>
         </label>
-        <button>LogIn!</button>
+        <button>SignUp!</button>
       </div>
     )
   }
 }
 
-export default LogInBox;
+export default SignUpBox;
