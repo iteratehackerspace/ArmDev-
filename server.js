@@ -34,4 +34,28 @@ app.post('/user_registration', json_parser, form_parser, (req, res) => {
     }
   });
 });
+app.post('/uname_check', json_parser, form_parser, (req, res) => {
+  const unameToCheck = req.body.uname;
+  //
+  MongoClient.connect(db_url, (err, db)=>{
+    if (err){
+      console.log('Error connecting to the DB: ' + err);
+      res.status(404).end();
+    } else {
+        console.log("Successfully connected to the DB.");
+        const collection = db.collection('users');
+        collection.find({uname: unameToCheck}).toArray((err, results)=> {
+          if (err){
+            console.log(err);
+          } else{
+            if (results.length===0){
+              res.status(200).send(JSON.stringify({unameAvailable: 1}));
+            } else{
+                res.status(200).send(JSON.stringify({unameAvailable: 0}));
+            }
+          }
+        });
+    }
+  });
+});
 app.use(express.static('build'));
