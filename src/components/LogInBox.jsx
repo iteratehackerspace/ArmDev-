@@ -12,7 +12,7 @@ class LogInBox extends Component {
     const values = this.state.value;
     values[event.target.id] = event.target.value;
     if ((event.target.id*1) === 0){
-      if (event.target.value.search('@') === -1){
+      if (event.target.value.length <= 4){
         const stls = this.state.styles;
         stls[event.target.id] = {borderColor: '#FF0000'};
         const oks = this.state.ok;
@@ -45,7 +45,7 @@ class LogInBox extends Component {
   send(){
     if (this.state.ok[0] && this.state.ok[1])
     {
-      const mail = this.state.value[0];
+      const uname = this.state.value[0];
       const pass = this.state.value[1];
       const request_options = {
         method: 'post',
@@ -53,19 +53,25 @@ class LogInBox extends Component {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         }),
-        body:JSON.stringify({
-          email : mail,
+        body: JSON.stringify({
+          username : uname,
           password: pass
         })
       };
-      fetch('http://localhost:8080/user_login', request_options);
+      fetch('http://localhost:8080/user_login', request_options).
+      then((result) =>{
+        return result.json();
+      })
+      .then((result) =>{
+        console.log(result);
+      });
     }
   }
   render() {
     return(
       <div className="loginBox" style={this.state}>
         <label>
-          <span>Email: </span><input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={this.handleChange} />
+          <span>User Name: </span><input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={this.handleChange} />
         </label>
         <label>
           <span>Password: </span><input style={this.state.styles[1]} id="1" type="password" value={this.state.value[1]} onChange={this.handleChange}/>
