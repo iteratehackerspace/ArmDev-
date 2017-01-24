@@ -12,8 +12,6 @@ class FrontPage extends Component {
       <div className='wholeScreen'>
         <div className='bg-image'></div>
         <FrontPageHeader />
-        <LogInBox />
-        <SignUpBox />
       </div>
     )
   }

@@ -14,10 +14,18 @@
 
 .left {
   align-self: flex-start;
+  width: 10%;
+  text-align: center;
 }
 
 .right {
   margin-right: auto;
+  width: 10%;
+  text-align: center;
+}
+
+.rightMost {
+  color: white;
 }
 
 .header a {
