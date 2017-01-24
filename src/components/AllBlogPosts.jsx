@@ -87,11 +87,17 @@ class AllBlogPosts extends Component {
     }
   }
   _handleNewBlogPost(_title, _tags, _text) {
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const year = currentDate.getYear();
+    const month = currentDate.getMonth();
+    const time = currentDate.getTime();
     const newBlogPost = {
       id: randomID(),
       tags: _tags,
       title: _title,
       text: _text,
+      time: day + ':' + month + ':' + year + '  ' + time,
     };
     this.setState({allBlogPosts: this.state.allBlogPosts.concat([newBlogPost])});
   }
