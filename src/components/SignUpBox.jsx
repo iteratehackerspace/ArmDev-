@@ -7,8 +7,27 @@ class SignUpBox extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.send = this.send.bind(this);
     this.createReqOpt = this.createReqOpt.bind(this);
-    this.state = {value: ["","","","",""], styles: [{},{},{},{},{}], ok: [false, false, false, false, false], unameCheck: ["", {}]};
+    this.badCredentials = this.badCredentials.bind(this);
+    this.okCredentials = this.okCredentials.bind(this);
+    this.state = {value: new Array(5).fill(""),
+      styles: new Array(5).fill({}),
+      ok: new Array(5).fill(false),
+      unameCheck: ["", {}]};
     this.unameFetchOptions;
+  }
+  badCredentials(id){
+    const stls = this.state.styles;
+    stls[id] = {borderColor: '#FF0000'};
+    const oks = this.state.ok;
+    oks[id] = false;
+    this.setState({styles: stls, ok: oks});
+  }
+  okCredentials(id){
+    const stls = this.state.styles;
+    stls[id] = {borderColor: '#D9FFA9'};
+    const oks = this.state.ok;
+    oks[id] = true;
+    this.setState({styles: stls, ok: oks});
   }
   createReqOpt(){
     this.unameFetchOptions = {
@@ -25,85 +44,58 @@ class SignUpBox extends Component {
   handleChange(event) {
     const values = this.state.value;
     values[event.target.id] = event.target.value;
-    if ((event.target.id*1) === 0 || (event.target.id*1) === 1){
-      if (event.target.value==="" || event.target.value.search(' ') != -1){
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#FF0000'};
-        const oks = this.state.ok;
-        oks[event.target.id] = false;
-        this.setState({styles: stls, ok: oks});
-      } else{
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#D9FFA9'};
-        const oks = this.state.ok;
-        oks[event.target.id] = true;
-        this.setState({styles: stls, ok: oks});
-      }
-    }
-    else if ((event.target.id*1) === 2){
-      if (event.target.value.search('@') === -1){
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#FF0000'};
-        const oks = this.state.ok;
-        oks[event.target.id] = false;
-        this.setState({styles: stls, ok: oks});
-      } else{
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#D9FFA9'};
-        const oks = this.state.ok;
-        oks[event.target.id] = true;
-        this.setState({styles: stls, ok: oks});
-      }
-    }
-    else if ((event.target.id*1) === 3){
-      if (event.target.value.length <= 4){
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#FF0000'};
-        const oks = this.state.ok;
-        oks[event.target.id] = false;
-        this.setState({styles: stls, ok: oks});
-      } else{
-          const stls = this.state.styles;
-          stls[event.target.id] = {borderColor: '#D9FFA9'};
-          const oks = this.state.ok;
-          oks[event.target.id] = true;
-          this.setState({styles: stls, ok: oks});
-          this.createReqOpt();
-          fetch('http://localhost:8080/uname_check', this.unameFetchOptions)
-            .then((result) =>{
-              return result.json();
-            })
-            .then((result) =>{
-              if (result.unameAvailable === 0){
-                const stls = this.state.styles;
-                stls[3] = {borderColor: '#ffa100'};
-                const oks = this.state.ok;
-                oks[3] = false;
-                this.setState({styles: stls, ok: oks, unameCheck: ["Username is not available...", {color: '#ffa100'}]});
-              } else if (result.unameAvailable === 1){
+    switch (event.target.id*1) {
+      case 0:
+      case 1:
+        if (event.target.value==="" || event.target.value.search(' ') != -1){
+          this.badCredentials(event.target.id);
+        } else{
+          this.okCredentials(event.target.id);
+        }
+        break;
+      case 2:
+        if (event.target.value.search('@') === -1){
+          this.badCredentials(event.target.id);
+        } else{
+          this.okCredentials(event.target.id);
+        }
+        break;
+      case 3:
+        if (event.target.value.length <= 4){
+          this.badCredentials(event.target.id);
+        } else{
+            this.okCredentials(event.target.id);
+            this.createReqOpt();
+            fetch('http://localhost:8080/uname_check', this.unameFetchOptions)
+              .then((result) =>{
+                return result.json();
+              })
+              .then((result) =>{
+                if (result.unameAvailable === 0){
                   const stls = this.state.styles;
-                  stls[3] = {borderColor: '#D9FFA9'};
+                  stls[3] = {borderColor: '#ffa100'};
                   const oks = this.state.ok;
-                  oks[3] = true;
-                  this.setState({styles: stls, ok: oks, unameCheck: ["Username is available", {color: '#D9FFA9'}]});
-              }
-            });
-      }
-    }
-    else if ((event.target.id*1) === 4){
-      if (event.target.value.length <= 6){
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#FF0000'};
-        const oks = this.state.ok;
-        oks[event.target.id] = false;
-        this.setState({styles: stls, ok: oks});
-      } else {
-          const stls = this.state.styles;
-          stls[event.target.id] = {borderColor: '#D9FFA9'};
-          const oks = this.state.ok;
-          oks[event.target.id] = true;
-          this.setState({styles: stls, ok: oks});
-      }
+                  oks[3] = false;
+                  this.setState({styles: stls, ok: oks, unameCheck: ["Username is not available...", {color: '#ffa100'}]});
+                } else if (result.unameAvailable === 1){
+                    const stls = this.state.styles;
+                    stls[3] = {borderColor: '#D9FFA9'};
+                    const oks = this.state.ok;
+                    oks[3] = true;
+                    this.setState({styles: stls, ok: oks, unameCheck: ["Username is available", {color: '#D9FFA9'}]});
+                }
+              });
+        }
+        break;
+        case 4:
+          if (event.target.value.length <= 6){
+            this.badCredentials(event.target.id);
+          } else {
+              this.okCredentials(event.target.id);
+          }
+        break;
+      default:
+        break;
     }
     this.setState({value: values});
   }
