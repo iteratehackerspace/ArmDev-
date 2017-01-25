@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import '../../css/frontpage/FrontPageHeader.css'
+import '../../css/frontpage/FrontPageHeader.css';
 
-class FrontPageHeader extends Component {
-  render () {
+function FrontPageHeader() {
     return (
         <div className="header">
           <li className='left'><a href="#">Blog</a></li>
@@ -13,7 +12,6 @@ class FrontPageHeader extends Component {
           <li><a href="#">Sign Up</a></li>
         </div>
     )
-  }
 }
 
 export default FrontPageHeader;

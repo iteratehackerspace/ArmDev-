@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/LogInBox.css'
+import '../../css/frontpage/LogInBox.css'
 
 class LogInBox extends Component {
   constructor(){
