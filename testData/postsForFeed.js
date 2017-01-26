@@ -1,10 +1,10 @@
-export default const posts = [
+const posts = [
   {
     title: 'maiores alias consequatur aut perferendis doloribus asperiores repellat',
     likes: 12332,
     tags: [
-      'programming', 
-      'reactJS', 
+      'programming',
+      'reactJS',
       'react native'
     ],
     seen: 657657,
@@ -64,17 +64,17 @@ export default const posts = [
           username: 'loool',
           image: '../assets/trump.jpg',
         },
-        {
-          likes: 3123,
-          time: '12/12/2016',
-          text: 'a YOU ARE SO SMAAAAAT yay! cool Like a lot of text of comment',
-          author: {
-            fullName: 'Somebody Cool',
-            username: 'loool',
-            image: '../assets/trump.jpg',
-          },
-        }
       },
+      {
+        likes: 3123,
+        time: '12/12/2016',
+        text: 'a YOU ARE SO SMAAAAAT yay! cool Like a lot of text of comment',
+        author: {
+          fullName: 'Somebody Cool',
+          username: 'loool',
+          image: '../assets/trump.jpg',
+        },
+      }
     ],
   },
   {
@@ -95,3 +95,4 @@ export default const posts = [
     comments: [],
   },
 ]
+module.exports = {posts};

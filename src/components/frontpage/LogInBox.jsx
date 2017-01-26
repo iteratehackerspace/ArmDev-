@@ -4,45 +4,45 @@ import '../../css/frontpage/LogInBox.css'
 class LogInBox extends Component {
   constructor(){
     super();
-    this.handleChange = this.handleChange.bind(this);
-    this.send = this.send.bind(this);
     this.state = {value: ["",""], styles: [{},{}], ok: [false, false]};
   }
-  handleChange(event) {
+  badCredentials = (id) => {
+    const stls = this.state.styles;
+    stls[id] = {borderColor: '#FF0000'};
+    const oks = this.state.ok;
+    oks[id] = false;
+    this.setState({styles: stls, ok: oks});
+  }
+  okCredentials = (id) => {
+    const stls = this.state.styles;
+    stls[id] = {borderColor: '#D9FFA9'};
+    const oks = this.state.ok;
+    oks[id] = true;
+    this.setState({styles: stls, ok: oks});
+  }
+  handleChange = (event) => {
     const values = this.state.value;
     values[event.target.id] = event.target.value;
-    if ((event.target.id*1) === 0){
-      if (event.target.value.length <= 4){
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#FF0000'};
-        const oks = this.state.ok;
-        oks[event.target.id] = false;
-        this.setState({styles: stls, ok: oks});
-      } else{
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#D9FFA9'};
-        const oks = this.state.ok;
-        oks[event.target.id] = true;
-        this.setState({styles: stls, ok: oks});
-      }
-    } else if ((event.target.id*1) === 1){
-      if (event.target.value.length <= 6){
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#FF0000'};
-        const oks = this.state.ok;
-        oks[event.target.id] = false;
-        this.setState({styles: stls, ok: oks});
-      } else {
-        const stls = this.state.styles;
-        stls[event.target.id] = {borderColor: '#D9FFA9'};
-        const oks = this.state.ok;
-        oks[event.target.id] = true;
-        this.setState({styles: stls, ok: oks});
-      }
+
+    switch (parseInt(event.target.id)){
+      case 0:
+        if (event.target.value.length <= 4){
+          this.badCredentials(event.target.id);
+        } else{
+          this.okCredentials(event.target.id);
+        }
+      break;
+      case 1:
+        if (event.target.value.length <= 6){
+          this.badCredentials(event.target.id);
+        } else {
+          this.okCredentials(event.target.id);
+        }
+      break;
     }
     this.setState({value: values});
   }
-  send(){
+  send = () => {
     if (this.state.ok[0] && this.state.ok[1])
     {
       const uname = this.state.value[0];

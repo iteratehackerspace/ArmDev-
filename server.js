@@ -111,4 +111,29 @@ app.post('/user_login', json_parser, form_parser, (req, res) => {
     }
   });
 });
+
+
+
+
+
+
+///////////TEST
+const posts = require("./testData/postsForFeed.js");
+
+app.get('/get_feed', (req, res) => {
+  res.status(200).send(JSON.stringify({posts}));
+})
+
+
+
+
+
+
+///////////TEST
+
+
+
+
+
+
 app.use(express.static('build'));

@@ -4,32 +4,27 @@ import '../../css/frontpage/CredentialBox.css'
 class SignUpBox extends Component {
   constructor(){
     super();
-    this.handleChange = this.handleChange.bind(this);
-    this.send = this.send.bind(this);
-    this.createReqOpt = this.createReqOpt.bind(this);
-    this.badCredentials = this.badCredentials.bind(this);
-    this.okCredentials = this.okCredentials.bind(this);
     this.state = {value: new Array(5).fill(""),
       styles: new Array(5).fill({}),
       ok: new Array(5).fill(false),
       unameCheck: ["", {}]};
     this.unameFetchOptions;
   }
-  badCredentials(id){
+  badCredentials = (id) => {
     const stls = this.state.styles;
     stls[id] = {borderColor: '#FF0000'};
     const oks = this.state.ok;
     oks[id] = false;
     this.setState({styles: stls, ok: oks});
   }
-  okCredentials(id){
+  okCredentials = (id) => {
     const stls = this.state.styles;
     stls[id] = {borderColor: '#D9FFA9'};
     const oks = this.state.ok;
     oks[id] = true;
     this.setState({styles: stls, ok: oks});
   }
-  createReqOpt(){
+  createReqOpt = () => {
     this.unameFetchOptions = {
       method: 'post',
       headers: new Headers({
@@ -41,10 +36,10 @@ class SignUpBox extends Component {
       })
     };
   }
-  handleChange(event) {
+  handleChange = (event) => {
     const values = this.state.value;
     values[event.target.id] = event.target.value;
-    switch (event.target.id*1) {
+    switch (parseInt(event.target.id)) {
       case 0:
       case 1:
         if (event.target.value==="" || event.target.value.search(' ') != -1){
@@ -99,7 +94,7 @@ class SignUpBox extends Component {
     }
     this.setState({value: values});
   }
-  send(){
+  send = () => {
     if (this.state.ok[0] && this.state.ok[1] && this.state.ok[2] && this.state.ok[3] && this.state.ok[4])
     {
       const firstName = this.state.value[0];
@@ -143,7 +138,7 @@ class SignUpBox extends Component {
           <p style={this.state.unameCheck[1]}>
             {this.state.unameCheck[0]}
           </p>
-          <input style={this.state.styles[3]} id="3" type="text" value={this.state.value[3]} onChange={this.handleChange}/>
+          <input style={this.state.styles[3], {marginLeft: '60px'}} id="3" type="text" value={this.state.value[3]} onChange={this.handleChange}/>
         </label>
         <label>
           <span>Password: </span>
