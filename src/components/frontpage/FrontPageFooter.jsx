@@ -5,7 +5,9 @@ class FrontPageFooter extends Component {
   render () {
     return (
       <div className="footer">
-        iterate hackerspace (github)
+        <span>
+          <a href='https://github.com/iteratehackerspace' target='_blank'>iterate hackerspace (github)</a>
+        </span>
       </div>
     )
   }
