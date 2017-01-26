@@ -7,9 +7,9 @@ import FrontPage from './components/frontpage/FrontPage.jsx'
 class App extends Component {
   render() {
     return (
-      <Router history = { browserHistory }>
-        <Route path = {'/'} component = { FrontPage } >
-          <Route path = {'blog'} component = { AllBlogPosts } />
+      <Router history={ browserHistory }>
+        <Route path={'/'} component={ FrontPage } >
+          <Route path={'blog'} component={ AllBlogPosts } />
         </Route>
       </Router>
     );

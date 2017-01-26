@@ -5,6 +5,7 @@ class LogInBox extends Component {
   constructor(){
     super();
     this.state = {value: ["",""], styles: [{},{}], ok: [false, false]};
+    this.regExpUname = /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){3,15}[a-zA-Z0-9]$/;
   }
   badCredentials = (id) => {
     const stls = this.state.styles;
@@ -23,13 +24,14 @@ class LogInBox extends Component {
   handleChange = (event) => {
     const values = this.state.value;
     values[event.target.id] = event.target.value;
-
+    let test;
     switch (parseInt(event.target.id)){
       case 0:
-        if (event.target.value.length <= 4){
-          this.badCredentials(event.target.id);
-        } else{
+        test = this.regExpUname.test(event.target.value);
+        if (test){
           this.okCredentials(event.target.id);
+        } else{
+          this.badCredentials(event.target.id);
         }
       break;
       case 1:

@@ -4,9 +4,6 @@ import { Link } from 'react-router';
 import '../../css/frontpage/FrontPageHeader.css';
 
 class FrontPageHeader extends Component {
-  constructor(){
-    super();
-  }
   clickHandler = (event) => {
     const array = this.props.states;
     array[(parseInt(event.target.id)+1)%2] = false;

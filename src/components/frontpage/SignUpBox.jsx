@@ -9,6 +9,9 @@ class SignUpBox extends Component {
       ok: new Array(5).fill(false),
       unameCheck: ["", {}]};
     this.unameFetchOptions;
+    this.regExpEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.regExpName = /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){1,20}[a-zA-Z0-9]$/;
+    this.regExpUname = /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){3,15}[a-zA-Z0-9]$/;
   }
   badCredentials = (id) => {
     const stls = this.state.styles;
@@ -37,22 +40,25 @@ class SignUpBox extends Component {
     };
   }
   handleChange = (event) => {
+    let test;
     const values = this.state.value;
     values[event.target.id] = event.target.value;
     switch (parseInt(event.target.id)) {
       case 0:
       case 1:
-        if (event.target.value==="" || event.target.value.search(' ') != -1){
-          this.badCredentials(event.target.id);
-        } else{
+        test = this.regExpName.test(event.target.value);
+        if (test){
           this.okCredentials(event.target.id);
+        } else{
+          this.badCredentials(event.target.id);
         }
         break;
       case 2:
-        if (event.target.value.search('@') === -1){
-          this.badCredentials(event.target.id);
-        } else{
+        test = this.regExpEmail.test(event.target.value);
+        if (test){
           this.okCredentials(event.target.id);
+        } else{
+          this.badCredentials(event.target.id);
         }
         break;
       case 3:
@@ -138,7 +144,7 @@ class SignUpBox extends Component {
           <p style={this.state.unameCheck[1]}>
             {this.state.unameCheck[0]}
           </p>
-          <input style={this.state.styles[3], {marginLeft: '60px'}} id="3" type="text" value={this.state.value[3]} onChange={this.handleChange}/>
+          <input style={Object.assign({marginLeft: "60px"}, this.state.styles[3])} id="3" type="text" value={this.state.value[3]} onChange={this.handleChange}/>
         </label>
         <label>
           <span>Password: </span>

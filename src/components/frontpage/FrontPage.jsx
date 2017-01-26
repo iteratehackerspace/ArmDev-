@@ -18,7 +18,7 @@ class FrontPage extends Component {
     return(
       <div className='wholeScreen'>
         <div className='bg-image'></div>
-        <FrontPageHeader states = {this.state.visibilityStates} changeState={(states) => this.setState({visibilityStates: states})} />
+        <FrontPageHeader states={this.state.visibilityStates} changeState={(states) => this.setState({visibilityStates: states})} />
         <SignUpAPI />
         <LogInBox visibility={this.state.visibilityStates[0]}/>
         <SignUpBox visibility={this.state.visibilityStates[1]}/>
