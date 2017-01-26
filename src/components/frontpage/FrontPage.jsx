@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import FrontPageHeader from './FrontPageHeader.jsx';
+
+import FrontPageHeader from './FrontPageHeader';
 import LogInBox from './LogInBox';
 import SignUpBox from './SignUpBox';
 import SignUpAPI from './SignUpAPI';
-import FrontPageFooter from './FrontPageFooter.jsx';
+import FrontPageFooter from './FrontPageFooter';
+
 import '../../css/frontpage/FrontPage.css'
 import '../../css/frontpage/CredentialBox.css';
 
@@ -14,8 +16,9 @@ class FrontPage extends Component {
         <div className='bg-image'></div>
         <FrontPageHeader />
         <SignUpAPI />
-        <LogInBox />
-        <SignUpBox />
+      {/*<LogInBox />
+      <SignUpBox />*/}
+        <FrontPageFooter />
       </div>
     )
   }
