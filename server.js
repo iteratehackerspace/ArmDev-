@@ -7,12 +7,16 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const db_url = 'mongodb://localhost:27017/ArmDev';
 const body_parser = require('body-parser');
+const cookie_parser = require('cookie-parser')
 const json_parser = body_parser.json();
 const form_parser = body_parser.urlencoded({extended: true});
 const nodemailer = require('nodemailer');
 http.listen(8080);
 
+app.use(cookie_parser());
+
 app.get('/', (req, res)=>{
+  console.log(req.cookies);
   res.sendFile(__dirname + '/build/index.html');
 });
 /*
@@ -118,22 +122,24 @@ app.post('/user_login', json_parser, form_parser, (req, res) => {
 
 
 ///////////TEST
+/*
 const posts = require("./testData/postsForFeed.js");
 
-app.get('/get_feed', (req, res) => {
-  res.status(200).send(JSON.stringify({posts}));
-})
+app.get('/get', (req, res) => {
+  console.log(req.cookies);
+  res.end();
+  //res.status(200).send(JSON.stringify({posts}));
+});
 
+app.post('/set', (req, res) => {
+  console.log("set")
+  res.cookie('remember', 1, { maxAge: 60000 });
+  res.end("cookies set");
+});
 
-
-
+*/
 
 
 ///////////TEST
-
-
-
-
-
 
 app.use(express.static('build'));
