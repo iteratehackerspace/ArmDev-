@@ -1,9 +1,15 @@
 .loginBox{
   width: 450px;
+  width: 50%;
   font-size: 16px;
-  background: #495C70;
   padding: 30px 30px 15px 30px;
   border: 5px solid #53687E;
+  border-radius: 4px;
+  font-family: Ubuntu;
+  border: 3px solid rgba(17, 20, 45, 0.77);
+  box-shadow: 0 2px 6px 0 rgba(270,300,200,0.2);
+  background-color: black;
+  opacity: 0.72;
 }
 .loginBox label
 {
@@ -27,8 +33,10 @@
     width: 275px;
     outline: none;
     padding: 0px 0px 0px 0px;
-    font-style: italic;
-}
+    color: white;
+    font-weight: bolder;
+
+  }
 .loginBox input[type=text]:focus,
 .loginBox input[type=password]:focus
 {
@@ -36,6 +44,7 @@
 }
 .loginBox button{
     background: #576E86;
+    margin-left: 80%;
     border: none;
     padding: 8px 10px 8px 10px;
     border-radius: 5px;
@@ -43,4 +52,7 @@
 }
 .loginBox button:hover{
 background: #394D61;
+font-weight: bolder;
+box-shadow: 1px 2px 2px 1px #eef3f9;
+
 }

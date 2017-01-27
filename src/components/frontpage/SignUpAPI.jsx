@@ -6,11 +6,14 @@ class SignUpAPI extends Component {
   render() {
     return (
       <div className='container'>
-        <button>Sign in with GitHub</button>
-        <button>Sign in with Facebook</button>
-        <button>Sign in with Google</button>
-        <button>Sign in with Twitter</button>
+        <div className="signup">
+        <button className="github">Sign in with GitHub</button>
+        <button className="facebook">Sign in with Facebook</button>
+        <button className="google">Sign in with Google</button>
+        <button className="twitter">Sign in with Twitter</button>
       </div>
+
+    </div>
     );
   }
 }
