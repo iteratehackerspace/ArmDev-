@@ -126,7 +126,7 @@ class SignUpBox extends Component {
   }
   render() {
     return(
-      <div className="signUpBox" style={{visibility: this.props.visibility ? "visible" : "hidden"}}>
+      <div className="signUpBox">
         <label>
           <span>First Name: </span>
           <input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={this.handleChange}/>

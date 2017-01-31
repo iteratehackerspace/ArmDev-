@@ -10,18 +10,12 @@ import '../../css/frontpage/FrontPage.css'
 import '../../css/frontpage/CredentialBox.css';
 
 class FrontPage extends Component {
-  constructor(){
-    super();
-    this.state = {visibilityStates: [false, false]};
-  }
   render() {
     return(
       <div className='wholeScreen'>
         <div className='bg-image'></div>
-        <FrontPageHeader states={this.state.visibilityStates} changeState={(states) => this.setState({visibilityStates: states})} />
+        <FrontPageHeader />
         <SignUpAPI />
-        <LogInBox visibility={this.state.visibilityStates[0]}/>
-        <SignUpBox visibility={this.state.visibilityStates[1]}/>
         <FrontPageFooter />
       </div>
     )

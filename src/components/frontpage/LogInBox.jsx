@@ -71,7 +71,7 @@ class LogInBox extends Component {
   }
   render() {
     return(
-      <div className="loginBox" style={{visibility: this.props.visibility ? "visible" : "hidden"}}>
+      <div className="loginBox">
         <label>
           <span>User Name: </span><input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={this.handleChange} />
         </label>
