@@ -11,7 +11,26 @@ const cookie_parser = require('cookie-parser')
 const json_parser = body_parser.json();
 const form_parser = body_parser.urlencoded({extended: true});
 const nodemailer = require('nodemailer');
-http.listen(8080);
+const _ = require('lodash');
+const jwt = require('jsonwebtoken');
+const express_jwt = require('express-jwt')
+const cors = require('cors');
+
+app.use(body_parser.urlencoded({ extended: true }));
+app.use(body_parser.json());
+app.use(cors());
+const config = {
+  secret: "iterate",
+}
+let jwtCheck = express_jwt({
+  secret: config.secret
+});
+
+app.use('/protected', jwtCheck);
+const createToken = (user) => {
+  return jwt.sign(_.omit(user, 'password'), config.secret, { expiresIn: 60*60*24*180 });
+}
+http.listen(8080, () => console.log('server started on port 8080'));
 
 app.use(cookie_parser());
 
@@ -37,19 +56,24 @@ const mailOptions = {
 };
 */ // nodemailer
 app.post('/user_registration', json_parser, form_parser, (req, res) => {
-  const userData = req.body;
+  let userData = req.body;
   //mailOptions.to = userData.email; // nodemailer
   console.log(userData);
-  MongoClient.connect(db_url, (err, db)=>{
+  MongoClient.connect(db_url, async (err, db)=>{
     if (err){
       console.log('Error connecting to the DB: ' + err);
     } else {
       console.log("Successfully connected to the DB.");
         const collection = db.collection('users');
-        collection.insert([userData], (err, result)=>{
+        let len = await collection.count();
+        userData.id = await len++;
+        await collection.insert([userData], (err, result)=>{
           if (err){
             console.log("Could not insert in the DB: " + err);
           } else {
+            res.status(201).send({
+              id_token: createToken(userData),
+            });
             console.log("Successfully added the new user to the DB.");
             /*
             transporter.sendMail(mailOptions, (error, info) {
@@ -97,15 +121,15 @@ app.post('/user_login', json_parser, form_parser, (req, res) => {
     } else {
         console.log("Successfully connected to the DB.");
         const collection = db.collection('users');
-        collection.find({uname: credentials.username}).toArray((err, results)=> {
+        collection.find({uname: credentials.emailOrUsername}).toArray((err, results)=> { //also need to check in Emails
           if (err){
             console.log(err);
           } else{
             if (results.length===0){
-              res.status(200).send(JSON.stringify({respond: -1})); //user not found
+              res.status(200).send(JSON.stringify({respond: 0})); //user not found
             } else{
                 if (credentials.password === results[0].password){
-                  res.status(200).send(JSON.stringify({respond: 1})); //successfully logged in
+                  res.status(200).send(JSON.stringify({respond: 1, id_token: createToken(credentials)})); //successfully logged in
                 } else{
                     res.status(200).send(JSON.stringify({respond: 0})); //login failed
                 }
@@ -115,8 +139,22 @@ app.post('/user_login', json_parser, form_parser, (req, res) => {
     }
   });
 });
-
-
+const posts = require("./testData/postsForFeed.js");
+app.get('/protected/get_feed', (req, res) => {
+  res.status(200).send(JSON.stringify({posts}));
+})
+const msgs = require('./testData/forumMessages.js');
+app.post('/protected/get_forum_messages', json_parser, form_parser, (req, res) => {
+  switch (req.body.fetchTitle) {
+    case 'reactjs':
+      res.status(200).send(JSON.stringify({msgs}));
+      break;
+    case 'android':
+      res.status(200).send(JSON.stringify({msgs}));
+      break;
+    default:
+  }
+});
 
 
 
