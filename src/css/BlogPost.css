@@ -1,42 +1,42 @@
-div {
- width: 100%;
-
-}
-
 .container {
-  font-size: 20px;
-  background: #495C70;
-  padding: 30px 30px 15px 30px;
-  border: 5px solid #53687E;
-  margin: 10px;
-  width: 100%;
+    width: 100%;
+    padding: 30px 30px 15px 30px;
+    margin: 10px;
+    background: #495C70;
+    border: 5px solid #53687E;
+    font-size: 20px;
 }
-.boldFont {
-  font-weight: bold;
-}
-.authorsContainer {
 
+.boldFont {
+    font-weight: bold;
 }
+/* Chmoranas*/
 img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
+
 .authorsInfo {
-  flex-direction: column;
+    flex-direction: column;
 }
-.likeButton {
-  background-color: #f1f8fb;
-  width: 10%;
-  border-radius: 15%;
-}
+
 .likes {
-  font-size: 15px;
+    font-size: 15px;
 }
+
 .likeButton {
-  transition: background-color .3s ease-in-out, color .3s linear;
+    width: 80px;
+    padding: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    background-color: #f1f8fb;
+    transition: background-color .3s ease-in-out, color .3s linear;
 }
+
 .likeButton:hover {
-  background: #394D61;
-  color: #8C89C5;
+    background: #394D61;
+    color: #8C89C5;
 }

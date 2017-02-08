@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../css/BlogPost.css';
 
-class BlogPost extends Component {
-  componentDidMount() {
-    this.props.handleBlogPostSeen();
-  }
-  render() {
-    const post = this.props.post;
-    const renderTags = post.tags.map(tag => {
-      return tag + ' ';
-    })
-    return (
-      <div className="container">
-        <span className='boldFont'>{post.title}</span>
-        <p>{renderTags}</p>
-        <div className='authorsContainer'>
-          <img src={post.author.image} role='presentation'/>
-          <span className='boldFont'>{post.author.fullName}, </span>
-          <span>{post.author.ShortDescription}: </span>
-          <span>Written on {post.time}</span>
-        </div>
-        <p>{post.text}</p>
-        <span className='likes'>Seen {post.seen}, liked {post.likes} times</span>
-        <button className='likeButton' onClick={this.props.handleBlogPostLike}>Like</button>
-      </div>
-    )
-  }
-}
+export default  class BlogPost extends Component {
+    componentDidMount() {
+        this.props.handleBlogPostSeen();
+    }
 
-export default BlogPost;
+    render() {
+        const {post} = this.props;
+        const {time, text, seen, likes} = post;
+
+        const {image, fullName, ShortDescription} = post.author;
+        const renderTags = post.tags.map(tag => tag + ' ');
+
+        return (
+            <div className="container">
+                <span className='boldFont'>{post.title}</span>
+                <p>{renderTags}</p>
+                <div className='authorsContainer'>
+                    <img src={image} role='presentation'/>
+                    <span className='boldFont'>{fullName}, </span>
+                    <span>{ShortDescription}: </span>
+                    <span>Written on {time}</span>
+                </div>
+                <p>{text}</p>
+                <span className='likes'>Seen {seen}, liked {likes} times</span>
+                <button className='likeButton' onClick={this.props.handleBlogPostLike}>Like</button>
+            </div>
+        )
+    }
+}

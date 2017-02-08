@@ -1,77 +1,65 @@
-
-form {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 60%;
-  height: 40%;
-  flex-direction: column;
-  font-size: 16px;
-  background: #495C70;
-  padding: 15px 15px 15px 15px;
-  border: 5px solid #53687E;
-  font-family: "Ubuntu";
-  background-color:rgba(72,72,72,0.4);
-	padding-left:35px;
-	padding-right:35px;
-	padding-top:35px;
-	padding-bottom:50px;
-	width: 450px;
-	
-
+.newPostForm {
+    width: 60%;
+    height: 40%;
+    padding: 35px 35px 50px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 5px solid #53687E;
+    background: rgba(72, 72, 72, 0.4);
+    font-size: 16px;
+    text-align: center;
 }
-textarea {
-    width: 100%;
 
-}
 .textBox {
-  color:#3c3c3c;
-  	font-family: Ubuntu;
-    font-weight:500;
-  	font-size: 18px;
-  	border-radius: 0;
-  	line-height: 22px;
-  	background-color: #fbfbfb;
-  	padding: 13px 13px 13px 54px;
-  	margin-bottom: 10px;
-  	width:100%;
-  	-webkit-box-sizing: border-box;
-  	-moz-box-sizing: border-box;
-  	-ms-box-sizing: border-box;
-  	box-sizing: border-box;
-    border: 3px solid rgba(0,0,0,0);
+    color: #3c3c3c;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0, 0, 0, 0);
 }
-.textBox:focus{
-	background: #fff;
-	box-shadow: 0;
-	border: 3px solid #3498db;
-	color: #3498db;
-	outline: none;
-  padding: 13px 13px 13px 54px;
+
+.textBox:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #3498db;
+    color: #3498db;
+    outline: none;
+    padding: 13px 13px 13px 54px;
 }
+
 .submitButton {
-  vertical-align: middle;
-	font-family: Ubuntu;
-  text-align: center;
-  text-shadow: #010729 1px 0 10px;
-  float:left;
-	width: 100%;
-	border: #fbfbfb solid 4px;
-	cursor:pointer;
-	background-color: #3498db;
-	color:white;
-	font-size:24px;
-	padding-top:22px;
-	padding-bottom:22px;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
+    vertical-align: middle;
+    text-align: center;
+    text-shadow: #010729 1px 0 10px;
+    float: left;
+    width: 100%;
+    border: #fbfbfb solid 4px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    font-size: 24px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
 }
-.submitButton:hover{
-	background-color: rgba(0,0,0,0);
-	color: #0493bd;
-  text-shadow: none;
+
+.submitButton:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: #0493bd;
+    text-shadow: none;
 }
