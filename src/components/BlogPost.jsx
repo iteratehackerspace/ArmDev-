@@ -11,7 +11,7 @@ class BlogPost extends Component {
       return tag + ' ';
     })
     return (
-      <div className='container'>
+      <div className="container">
         <span className='boldFont'>{post.title}</span>
         <p>{renderTags}</p>
         <div className='authorsContainer'>

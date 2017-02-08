@@ -21,11 +21,10 @@ class SignUpBox extends Component {
     this.setState({styles: stls, ok: oks});
   }
   okCredentials = (id) => {
-    const stls = this.state.styles;
-    stls[id] = {borderColor: '#D9FFA9'};
-    const oks = this.state.ok;
-    oks[id] = true;
-    this.setState({styles: stls, ok: oks});
+  const { ok, styles } = this.state;
+    styles[id] = {borderColor: '#D9FFA9'};
+    ok[id] = true;
+    this.setState({styles, ok});
   }
   createReqOpt = () => {
     this.unameFetchOptions = {
@@ -39,7 +38,7 @@ class SignUpBox extends Component {
       })
     };
   }
-  handleChange = (event) => {
+  handleChange = (event, num) => {
     let test;
     const values = this.state.value;
     values[event.target.id] = event.target.value;
@@ -129,7 +128,7 @@ class SignUpBox extends Component {
       <div className="signUpBox">
         <label>
           <span>First Name: </span>
-          <input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={this.handleChange}/>
+          <input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={(e) => this.handleChange(e, 1)}/>
         </label>
         <label>
           <span>Last Name: </span>

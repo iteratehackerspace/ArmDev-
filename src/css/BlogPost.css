@@ -1,17 +1,21 @@
+div {
+ width: 100%;
+
+}
+
 .container {
-  display: flex;
-  flex-direction: column;
   font-size: 20px;
   background: #495C70;
   padding: 30px 30px 15px 30px;
   border: 5px solid #53687E;
   margin: 10px;
+  width: 100%;
 }
 .boldFont {
   font-weight: bold;
 }
 .authorsContainer {
-  flex-direction: row;
+
 }
 img {
   width: 30px;

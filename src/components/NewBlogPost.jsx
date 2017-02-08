@@ -32,7 +32,7 @@ class NewBlogPost extends Component {
       else return <button className='submitButton' onClick={this.showHide.bind(this)}>Write a post</button>
     }
     return(
-      <div className='container'>
+      <div>
         {showOrHide()}
       </div>
     )

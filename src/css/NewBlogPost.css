@@ -18,12 +18,8 @@ form {
 	padding-top:35px;
 	padding-bottom:50px;
 	width: 450px;
-	float: left;
-	left: 50%;
-  margin-top:30px;
-	position: absolute;
-	margin-left: -260px;
-  -moz-border-radius: 7px;
+	
+
 }
 textarea {
     width: 100%;

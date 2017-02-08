@@ -1,6 +1,4 @@
-.author {
-  background-color: green;
-}
-.blogBody {
-  background-color: yellow;
+div {
+  width: 100%;
+  heigth: 100%;
 }

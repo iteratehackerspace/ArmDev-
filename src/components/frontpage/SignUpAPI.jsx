@@ -5,7 +5,7 @@ import '../../css/frontpage/SignUpAPI.css';
 class SignUpAPI extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className='container-signup'>
         <div className="signup">
         <button className="github">Sign in with GitHub</button>
         <button className="facebook">Sign in with Facebook</button>
