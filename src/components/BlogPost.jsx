@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../css/BlogPost.css';
+import CommentButton from './CommentButton'
 
 export default  class BlogPost extends Component {
     componentDidMount() {
@@ -25,6 +26,7 @@ export default  class BlogPost extends Component {
                 </div>
                 <p>{text}</p>
                 <span className='likes'>Seen {seen}, liked {likes} times</span>
+                <CommentButton/>
                 <button className='likeButton' onClick={this.props.handleBlogPostLike}>Like</button>
             </div>
         )
