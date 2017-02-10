@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AllComments from './AllComments';
+import CommentList from './CommentList';
 
 export default class CommentButton extends React.Component{
  constructor(){
@@ -12,7 +13,7 @@ onClick(){
     this.setState({inputsVisible: !this.state.inputsVisible, buttonText: !this.state.buttonText});
 }
 render() {
-   let buttonText = 'Cancel and delete';
+   let buttonText = "Delete all comments";
    if (this.state.buttonText) {buttonText = "Write Comment"}
 
    return(
@@ -20,7 +21,7 @@ render() {
        {
          this.state.inputsVisible
            ? <AllComments/>
-           : null
+         : null
        }
        <div onClick={this.onClick}>
          <button> {buttonText} </button>
