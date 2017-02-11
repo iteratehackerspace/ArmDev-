@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/BlogPost.css';
 
-export default  class BlogPost extends Component {
+export default class BlogPost extends Component {
     componentDidMount() {
         this.props.handleBlogPostSeen();
     }
@@ -19,12 +19,15 @@ export default  class BlogPost extends Component {
                 <p>{renderTags}</p>
                 <div className='authorsContainer'>
                     <img src={image} role='presentation'/>
-                    <span className='boldFont'>{fullName}, </span>
-                    <span>{ShortDescription}: </span>
+                    <span className='boldFont'>{fullName},
+                    </span>
+                    <span>{ShortDescription}:
+                    </span>
                     <span>Written on {time}</span>
                 </div>
                 <p>{text}</p>
-                <span className='likes'>Seen {seen}, liked {likes} times</span>
+                <span className='likes'>Seen {seen}, liked {likes}
+                    times</span>
                 <button className='likeButton' onClick={this.props.handleBlogPostLike}>Like</button>
             </div>
         )

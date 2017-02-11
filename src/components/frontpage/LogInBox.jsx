@@ -1,23 +1,35 @@
 import React, {Component} from 'react';
 import '../../css/frontpage/LogInBox.css'
 
-export default  class LogInBox extends Component {
+export default class LogInBox extends Component {
     constructor() {
         super();
-        this.state = {value: ["", ""], styles: [{}, {}], ok: [false, false]};
+        this.state = {
+            value: [
+                "", ""
+            ],
+            styles: [
+                {}, {}
+            ],
+            ok: [false, false]
+        };
         this.regExpUname = /^[a-zA-Z0-9]([._](?![._])|[a-zA-Z0-9]){3,15}[a-zA-Z0-9]$/;
     }
 
     badCredentials = (id) => {
         const {styles, ok} = this.state;
-        styles[id] = {borderColor: '#FF0000'};
+        styles[id] = {
+            borderColor: '#FF0000'
+        };
         ok[id] = false;
         this.setState({styles, ok});
     };
 
     okCredentials = (id) => {
         const {styles, ok} = this.state;
-        styles[id] = {borderColor: '#D9FFA9'};
+        styles[id] = {
+            borderColor: '#D9FFA9'
+        };
         ok[id] = false;
         this.setState({styles, ok});
     };
@@ -54,20 +66,12 @@ export default  class LogInBox extends Component {
             const pass = this.state.value[1];
             const request_options = {
                 method: 'post',
-                headers: new Headers({
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                }),
-                body: JSON.stringify({
-                    username: uname,
-                    password: pass
-                })
+                headers: new Headers({'Accept': 'application/json', 'Content-Type': 'application/json'}),
+                body: JSON.stringify({username: uname, password: pass})
             };
-            fetch('http://localhost:8080/user_login', request_options)
-                .then((result) => result.json())
-                .then((result) => {
-                    console.log(result);
-                });
+            fetch('http://localhost:8080/user_login', request_options).then((result) => result.json()).then((result) => {
+                console.log(result);
+            });
         }
     };
 
@@ -75,25 +79,17 @@ export default  class LogInBox extends Component {
         return (
             <div className="loginBox">
                 <label>
-                    <span>User Name: </span>
-                    <input style={this.state.styles[0]}
-                           id="0"
-                           type="text"
-                           value={this.state.value[0]}
-                           onChange={this.handleChange}/>
+                    <span>User Name:
+                    </span>
+                    <input style={this.state.styles[0]} id="0" type="text" value={this.state.value[0]} onChange={this.handleChange}/>
                 </label>
                 <label>
-                    <span>Password: </span>
-                    <input style={this.state.styles[1]}
-                           id="1"
-                           type="password"
-                           value={this.state.value[1]}
-                           onChange={this.handleChange}/>
+                    <span>Password:
+                    </span>
+                    <input style={this.state.styles[1]} id="1" type="password" value={this.state.value[1]} onChange={this.handleChange}/>
                 </label>
                 <button onClick={this.send}>LogIn!</button>
             </div>
         )
     }
 }
-
-

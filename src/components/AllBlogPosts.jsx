@@ -14,9 +14,7 @@ export default class AllBlogPosts extends Component {
                     title: ' id quod m ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat',
                     likes: 12332,
                     tags: [
-                        'programming',
-                        'reactJS',
-                        'react native'
+                        'programming', 'reactJS', 'react native'
                     ],
                     seen: 657657,
                     time: '02/12/2016',
@@ -27,7 +25,7 @@ export default class AllBlogPosts extends Component {
                         bigDescription: 'react native 12312years of development and blablabla',
                         followers: 321,
                         idOfAuthor: 3212321,
-                        image: '../assets/trump.jpg',
+                        image: '../assets/trump.jpg'
                     },
                     comments: [
                         {
@@ -41,19 +39,16 @@ export default class AllBlogPosts extends Component {
                                 bigDescription: 'react native 12312years of development and blablabla',
                                 followers: 321,
                                 idOfAuthor: 3212321,
-                                image: '../assets/trump.jpg',
-                            },
+                                image: '../assets/trump.jpg'
+                            }
                         }
-                    ],
-                },
-                {
+                    ]
+                }, {
                     id: randomID(),
                     title: ' id quod m ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat',
                     likes: 12332,
                     tags: [
-                        'programming',
-                        'reactJS',
-                        'react native'
+                        'programming', 'reactJS', 'react native'
                     ],
                     seen: 657657,
                     time: '02/12/2016',
@@ -64,7 +59,7 @@ export default class AllBlogPosts extends Component {
                         bigDescription: 'react native 12312years of development and blablabla',
                         followers: 321,
                         idOfAuthor: 3212321,
-                        image: '../assets/trump.jpg',
+                        image: '../assets/trump.jpg'
                     },
                     comments: [
                         {
@@ -78,12 +73,12 @@ export default class AllBlogPosts extends Component {
                                 bigDescription: 'react native 12312years of development and blablabla',
                                 followers: 321,
                                 idOfAuthor: 3212321,
-                                image: '../assets/trump.jpg',
-                            },
+                                image: '../assets/trump.jpg'
+                            }
                         }
-                    ],
+                    ]
                 }
-            ],
+            ]
         }
     }
 
@@ -99,10 +94,15 @@ export default class AllBlogPosts extends Component {
             tags: _tags,
             title: _title,
             text: _text,
-            time: day + ':' + month + ':' + year + '  ' + time,
+            time: day + ':' + month + ':' + year + '  ' + time
         };
 
-        this.setState({allBlogPosts: [...this.state.allBlogPosts, newBlogPost]});
+        this.setState({
+            allBlogPosts: [
+                ...this.state.allBlogPosts,
+                newBlogPost
+            ]
+        });
     };
 
     _handleBlogPostLike = (idx) => {
@@ -119,17 +119,12 @@ export default class AllBlogPosts extends Component {
 
     render() {
         const renderPosts = this.state.allBlogPosts.map((blogPost, idx) => {
-            return <BlogPost key={idx}
-                             counter={idx}
-                             post={blogPost}
-                             handleBlogPostLike={() => this._handleBlogPostLike(idx)}
-                             handleBlogPostSeen={() => this._handleBlogPostSeen(idx)}/>
+            return <BlogPost key={idx} counter={idx} post={blogPost} handleBlogPostLike={() => this._handleBlogPostLike(idx)} handleBlogPostSeen={() => this._handleBlogPostSeen(idx)}/>
         });
 
         return (
             <div>
-                <NewBlogPost handleNewBlogPost={() => this._handleNewBlogPost()}/>
-                {renderPosts}
+                <NewBlogPost handleNewBlogPost={() => this._handleNewBlogPost()}/> {renderPosts}
             </div>
         )
     }
