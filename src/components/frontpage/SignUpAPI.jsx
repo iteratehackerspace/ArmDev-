@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import '../../css/frontpage/SignUpAPI.css';
 
-class SignUpAPI extends Component {
+export default class SignUpAPI extends Component {
   render() {
     return (
       <div className='container-signup'>
@@ -17,5 +17,3 @@ class SignUpAPI extends Component {
     );
   }
 }
-
-export default SignUpAPI;

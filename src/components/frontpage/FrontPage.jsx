@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import FrontPageHeader from './FrontPageHeader';
 import LogInBox from './LogInBox';
@@ -9,7 +9,7 @@ import FrontPageFooter from './FrontPageFooter';
 import '../../css/frontpage/FrontPage.css'
 import '../../css/frontpage/CredentialBox.css';
 
-class FrontPage extends Component {
+export default class FrontPage extends Component {
   render() {
     return(
       <div className='wholeScreen'>
@@ -21,5 +21,3 @@ class FrontPage extends Component {
     )
   }
 }
-
-export default FrontPage;

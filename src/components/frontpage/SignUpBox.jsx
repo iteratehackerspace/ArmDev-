@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../../css/frontpage/CredentialBox.css'
 
-class SignUpBox extends Component {
+export default class SignUpBox extends Component {
   constructor(){
     super();
     this.state = {value: new Array(5).fill(""),
@@ -154,5 +154,3 @@ class SignUpBox extends Component {
     )
   }
 }
-
-export default SignUpBox;

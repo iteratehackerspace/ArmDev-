@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../css/NewBlogPost.css'
 
-class NewBlogPost extends Component {
+export default class NewBlogPost extends Component {
     constructor() {
         super();
         this.state = {
@@ -50,5 +50,3 @@ class NewBlogPost extends Component {
         )
     }
 }
-
-export default NewBlogPost;

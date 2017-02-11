@@ -6,7 +6,7 @@ import FrontPage from './components/frontpage/FrontPage.jsx';
 import LogInBox from './components/frontpage/LogInBox.jsx';
 import LogInSignUp from './components/frontpage/LogInSignUp.jsx'
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Router history={ browserHistory }>
@@ -17,5 +17,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

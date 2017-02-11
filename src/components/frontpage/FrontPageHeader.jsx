@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 import '../../css/frontpage/FrontPageHeader.css';
 
-class FrontPageHeader extends Component {
+export default class FrontPageHeader extends Component {
   render(){
     return (
         <div className="header">
@@ -16,5 +16,3 @@ class FrontPageHeader extends Component {
     )
   }
 }
-
-export default FrontPageHeader;
