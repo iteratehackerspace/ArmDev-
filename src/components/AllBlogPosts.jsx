@@ -84,10 +84,12 @@ export default class AllBlogPosts extends Component {
 
     _handleNewBlogPost = (_title, _tags, _text) => {
         const currentDate = new Date();
-        const day = currentDate.getDate();
-        const year = currentDate.getYear();
-        const month = currentDate.getMonth();
-        const time = currentDate.getTime();
+        const {day, year, month, time} = {
+            day: currentDate.getDate(),
+            year: currentDate.getYear(),
+            month: currentDate.getMonth(),
+            time: currentDate.getTime()
+        }
 
         const newBlogPost = {
             id: randomID(),
@@ -121,7 +123,6 @@ export default class AllBlogPosts extends Component {
         const renderPosts = this.state.allBlogPosts.map((blogPost, idx) => {
             return <BlogPost key={idx} counter={idx} post={blogPost} handleBlogPostLike={() => this._handleBlogPostLike(idx)} handleBlogPostSeen={() => this._handleBlogPostSeen(idx)}/>
         });
-
         return (
             <div>
                 <NewBlogPost handleNewBlogPost={() => this._handleNewBlogPost()}/> {renderPosts}

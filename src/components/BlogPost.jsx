@@ -11,7 +11,7 @@ export default class BlogPost extends Component {
         const {time, text, seen, likes} = post;
 
         const {image, fullName, ShortDescription} = post.author;
-        const renderTags = post.tags.map(tag => tag + ' ');
+        const renderTags = post.tags.join(' ');
 
         return (
             <div className="container">
